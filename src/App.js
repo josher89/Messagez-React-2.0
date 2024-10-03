@@ -26,7 +26,7 @@ const App = () => {
   };
 
   const handleDelete = (id) => {
-    axios.delete('http://localhost:8000/api/messagez/${id}/')
+    axios.delete(`http://localhost:8000/api/messagez/${id}/`)
       .then(() => {
         setMessagez(messagez.filter(message => message.id !== id));
       })
