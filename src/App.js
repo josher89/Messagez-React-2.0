@@ -25,6 +25,13 @@ const App = () => {
     }
   };
 
+  const handleDelete = (id) => {
+    axios.delete('http://localhost:8000/api/messagez/${id}/')
+      .then(() => {
+        setMessagez(messagez.filter(message => message.id !== id));
+      })
+      .catch(error => console.error("There was an error deleting the message", error));
+  };
 
   return (
     <div>
@@ -43,6 +50,7 @@ const App = () => {
         {messagez.map((messagez) => (
           <li key={messagez.id}>
             {messagez.text} - {new Date(messagez.timestamp).toLocaleString()}
+            <button onClick={() => handleDelete(messagez.id)}>Delete</button> {/* Delete button */}
           </li>
         ))}
       </ul>
