@@ -1,3 +1,9 @@
+# Restore all node-modules when pulling from the repository
+
+rm -rf node_modules
+rm package-lock.json
+npm install
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
